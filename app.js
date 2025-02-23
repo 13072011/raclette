@@ -16,20 +16,19 @@ function sendOrderNotification(product) {
     // Simuler l'envoi d'une notification au producteur
     console.log('Notification envoyée au producteur pour le produit:', product);
 
-    // Ici, vous pouvez ajouter une requête HTTP pour envoyer la notification au producteur
-    // Exemple :
-    // fetch('https://api.votreproducteur.com/notification', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({
-    //         product: product.name,
-    //         price: product.price,
-    //         message: 'Une nouvelle commande a été passée.',
-    //     }),
-    // })
-    // .then(response => response.json())
-    // .then(data => console.log('Notification envoyée:', data))
-    // .catch(error => console.error('Erreur:', error));
+    // Envoyer la notification au producteur via une requête HTTP
+    fetch('https://api.votreproducteur.com/notification', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            product: product.name,
+            price: product.price,
+            message: 'Une nouvelle commande a été passée.',
+        }),
+    })
+    .then(response => response.json())
+    .then(data => console.log('Notification envoyée:', data))
+    .catch(error => console.error('Erreur:', error));
 }
