@@ -18,6 +18,27 @@
             <button id="order-button">Commander</button>
         </section>
     </main>
-    <script src="app.js"></script>
+    <script>
+        document.getElementById('order-button').addEventListener('click', function() {
+            // Simuler la commande
+            const product = {
+                name: 'Mini Machine à Raclette',
+                price: 49.99,
+                message: 'Une nouvelle commande a été passée.'
+            };
+
+            // Envoyer la commande au script PHP
+            fetch('notification.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `produit=${product.name}&prix=${product.price}&message=${product.message}`
+            })
+            .then(response => response.text())
+            .then(data => alert(data))
+            .catch(error => console.error('Erreur:', error));
+        });
+    </script>
 </body>
 </html>
