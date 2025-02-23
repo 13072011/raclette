@@ -21,10 +21,10 @@ $message = $_POST['message'];
 $sql = "INSERT INTO commandes (produit, prix, message) VALUES ('$produit', $prix, '$message')";
 if ($conn->query($sql) === TRUE) {
     // Envoyer l'email de notification
-    $to = "producteur@example.com"; // Remplacez par l'email du producteur
+    $to = "minimachinearaclette@gmail.com"; // Remplacez par l'email du producteur
     $subject = "Nouvelle commande reçue";
     $body = "Produit: $produit\nPrix: $prix\nMessage: $message";
-    $headers = "From: votre.email@example.com"; // Remplacez par votre email
+    $headers = "From: clement.laurain67@gmail.com"; // Remplacez par votre email
 
     if (mail($to, $subject, $body, $headers)) {
         echo "Notification envoyée avec succès";
