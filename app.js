@@ -17,7 +17,7 @@ function sendOrderNotification(product) {
     console.log('Notification envoyée au producteur pour le produit:', product);
 
     // Envoyer la notification au producteur via une requête HTTP
-    fetch('https://api.votreproducteur.com/notification', {
+    fetch('https://13072011.github.io/api-product/notification', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
